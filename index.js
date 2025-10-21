@@ -15,7 +15,7 @@ const searchQuery = "";
 
 export async function fetchCharacters() {
   const apiUrl = await fetch(
-    `https://rickandmortyapi.com/)`
+    `https://rickandmortyapi.com/api/character`
   );
 
   const data = await apiUrl.json();
@@ -23,3 +23,6 @@ export async function fetchCharacters() {
 
   console.log(data);
 }
+
+
+fetchCharacters();
