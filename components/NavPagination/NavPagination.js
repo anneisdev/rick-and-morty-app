@@ -1,8 +1,6 @@
 ////// Aufgabe 4 //////
 
 // 20 charakter pro seite, seiten wollen wir hin und her wechseln
-    // füge diesen string zur api url hinzu: ?page=<pageIndex> (*Siehe fetch color api übung, um sowas an die url zu hängen)
-        // apiUrl aus index.js importieren
     // in index.js steht const page = 1
         // das ist der index für unsere page
         // const page aus index.js importieren

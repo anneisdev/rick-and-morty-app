@@ -1,20 +1,31 @@
-export function createCharacterCard() {
-    
+export function createCharacterCard(card) {
+   const newCard = document.createElement('li') 
+
+   newCard.innerHTML = 
+   `<li class="card">
+          <div class="card__image-container">
+            <img
+              class="card__image"
+              src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+              alt="Rick Sanchez"
+            />
+            <div class="card__image-gradient"></div>
+          </div>
+          <div class="card__content">
+            <h2 class="card__title">Rick Sanchez</h2>
+            <dl class="card__info">
+              <dt class="card__info-title">Status</dt>
+              <dd class="card__info-description">Alive</dd>
+              <dt class="card__info-title">Type</dt>
+              <dd class="card__info-description"></dd>
+              <dt class="card__info-title">Occurrences</dt>
+              <dd class="card__info-description">51</dd>
+            </dl>
+          </div>
+        </li>`;
+
+        return newCard;
 }
-
-////// Aufgabe 2 //////
-
-// card erstellen
-    // const ___ = createlement li
-    // alles von li class card kopieren
-    // mit innerhtml struktur mit den ganzen untergeordneten klassen&eigenschaften erstellen
-    // funktion returned das neue li element (gespeichert in einer const)
-    // createCharacterCard funktion in index.js importieren & aufrufen
-        // append das returnte li element an den cardcontainer in der index.js
-    // hard coded rick karte aus html rausnehmen
-// Ziel = Wir erstellen eine neue Character Card
-
-
 
 ////// Aufgabe 3 //////
 
