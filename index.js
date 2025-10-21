@@ -12,3 +12,14 @@ const pagination = document.querySelector('[data-js="pagination"]');
 const maxPage = 1;
 const page = 1;
 const searchQuery = "";
+
+export async function fetchCharacters() {
+  const apiUrl = await fetch(
+    `https://rickandmortyapi.com/)`
+  );
+
+  const data = await apiUrl.json();
+
+
+  console.log(data);
+}
