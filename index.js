@@ -19,20 +19,18 @@ export async function fetchCharacters() {
   const apiUrl = await fetch(
     `https://rickandmortyapi.com/api/character/?page=${page}`
   );
-
   const data = await apiUrl.json();
 
+  const characters = data.results;
 
-  console.log(data);
+  cardContainer.innerHTML = "";
+
+  characters.forEach((character) => {
+    const card = createCharacterCard(character);
+    cardContainer.append(card);
+  });
+
+  console.log(characters);
 }
-
-function appendCharacterCard(card) {
-  createCharacterCard();
-
-  cardContainer.append(card)
-
-}
-
 
 fetchCharacters();
-appendCharacterCard();

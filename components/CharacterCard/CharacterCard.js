@@ -1,50 +1,32 @@
-export function createCharacterCard(card) {
-   const newCard = document.createElement('li') 
+export function createCharacterCard(character) {
+  const newCard = document.createElement("li");
 
-   newCard.innerHTML = 
-   `<li class="card">
+  const name = character.name;
+  const status = character.status;
+  const type = character.type;
+  const occurence = character.episode.length;
+  const img = character.image;
+
+  newCard.innerHTML = `
           <div class="card__image-container">
             <img
               class="card__image"
-              src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+              src="${img}"
               alt="Rick Sanchez"
             />
             <div class="card__image-gradient"></div>
           </div>
           <div class="card__content">
-            <h2 class="card__title">Rick Sanchez</h2>
+            <h2 class="card__title">${name}</h2>
             <dl class="card__info">
               <dt class="card__info-title">Status</dt>
-              <dd class="card__info-description">Alive</dd>
+              <dd class="card__info-description">${status}</dd>
               <dt class="card__info-title">Type</dt>
-              <dd class="card__info-description"></dd>
+              <dd class="card__info-description">${type}</dd>
               <dt class="card__info-title">Occurrences</dt>
-              <dd class="card__info-description">51</dd>
+              <dd class="card__info-description">${occurence}</dd>
             </dl>
-          </div>
-        </li>`;
+          </div>`;
 
-        return newCard;
+  return newCard;
 }
-
-////// Aufgabe 3 //////
-
-// api infos in cards einfügen
-    // in createCharacterCard() data aus index.js übergeben
-        // image src
-        // character name
-        // character status
-        // character type
-        // character occurences
-    // in fetchCharacters() eine foereach schleife für jeden charakter erstellen
-        // für jeden charakter soll eine card erstellt werden und mit append() an cardContainer gehangen werden
-    // immer wenn neuer charakter gefetched wird (mittels der fetch funktion wo wir auf die api zugreifen?)
-        // soll cardcontainer leer gemacht werden
-            // cardcontainer leer machen mit innerHtml = ''
-// Ziel = 20 Character Cards werden dynamisch dargestellt
-
-
-
-
-    
- 
