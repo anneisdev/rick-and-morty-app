@@ -1,4 +1,5 @@
 import { createCharacterCard } from "./components/CharacterCard/CharacterCard.js";
+import { updatePagination } from "./components/NavPagination/NavPagination.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
@@ -11,9 +12,13 @@ const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
-const maxPage = 1;
-const page = 1;
+export let page = 1;
+export let maxPage;
 const searchQuery = "";
+
+export function setPage(newPage) {
+ page = newPage; 
+}
 
 export async function fetchCharacters() {
   const apiUrl = await fetch(
@@ -21,7 +26,8 @@ export async function fetchCharacters() {
   );
   const data = await apiUrl.json();
 
-  const characters = data.results;
+  maxPage = data.info.pages;
+  let characters = data.results;
 
   cardContainer.innerHTML = "";
 
@@ -30,7 +36,8 @@ export async function fetchCharacters() {
     cardContainer.append(card);
   });
 
-  console.log(characters);
+  console.log(data);
 }
 
-fetchCharacters();
+await fetchCharacters();
+updatePagination();

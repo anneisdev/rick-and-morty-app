@@ -1,27 +1,34 @@
-////// Aufgabe 4 //////
+import { fetchCharacters, maxPage, page, setPage } from "../../index.js";
 
-// 20 charakter pro seite, seiten wollen wir hin und her wechseln
-    // in index.js steht const page = 1
-        // das ist der index für unsere page
-        // const page aus index.js importieren
-    // in dem übergeordneten api ergebnis (nicht einzelner charakter) steht "info": { "pages": 42}
-        // das ist max pages
-        // data aus index.js importieren
-    // event listener auf den prev + next buttons
-        // auf buttons in html data-js implementieren
-        // querySelector auf buttons zugreifen
-        // fetchCharacters Funtkion aufrufen
-            // aus index.js fetchCharacters() importieren
-        // prev button
-            // darf nur runter gehen
-            // page -1
-            // bei page 1 darf nicht weiter runter gehen
-                // if page = 1 -> darf page -1 nicht stattfinden
-        // next button
-            // darf nur hoch gehen
-            // page + 1
-            // bei max page (also page 42 (also in dem api result unter info, dann unter pages)) darf nicht höher gehen
-                // if page = maxCount -> darf page +1 nicht stattfinden
-    // die pagination zahl soll immer wenn neue charaktere gefetched werden updaten
-        // aktuelle seite anzeigen und max pages anzeigen? 
-            // page: 2/42
+const prevButton = document.querySelector('[data-js="button-prev"]');
+const nextButton = document.querySelector('[data-js="button-next"]');
+const pagination = document.querySelector('[data-js="pagination"]');
+
+function setPaginationText() {
+    pagination.textContent = `Page ${page} / ${maxPage}`;
+}
+
+export function updatePagination() {
+    prevButton.addEventListener(("click"), async () => {
+        if (page === 1) {
+            return;
+        } else {
+            setPage(page - 1);
+        }
+
+        await fetchCharacters();
+        setPaginationText();
+    })
+
+    nextButton.addEventListener(('click'), async () => {
+        if (page === maxPage) {
+            return;
+        } else {
+            setPage(page + 1);
+        }
+
+        await fetchCharacters();
+        setPaginationText();
+    })
+    setPaginationText();    
+}
