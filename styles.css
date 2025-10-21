@@ -3,8 +3,7 @@
 @import "components/NavButton/NavButton.css";
 @import "components/NavPagination/NavPagination.css";
 
-* {
-  box-sizing: border-box;
+/*   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -29,4 +28,144 @@ main {
 
 .title {
   padding: 10px 0;
+}
+
+  */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #0f172a; /* dark background */
+  color: #e5e7eb; /* light text */
+}
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.title {
+  margin: 0 0 18px;
+}
+
+.search-bar {
+  margin: 6px 0 18px;
+}
+
+/* cards grid */
+.card-container {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.navigation {
+  margin: 20px 0 0;
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 18px;
+  }
+  .card-container {
+    gap: 14px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  .card_title {
+    font-size: 1rem;
+  }
+}
+
+/*------------------------------------------*/
+
+/* === EXTRA SPACING & LAYOUT FIXES === */
+
+.title {
+  margin: 0 0 24px;
+}
+
+.search-bar-container {
+  margin: 8px 0 20px;
+}
+
+.card-container {
+  margin: 10px 0 0;
+  padding: 0;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.navigation {
+  margin: 26px 0 0;
+}
+
+/* === CARD FINE-TUNING === */
+.card_image {
+  aspect-ratio: 16/10;
+  object-fit: cover;
+}
+
+.card_content {
+  padding: 16px 14px 18px; /* inner padding */
+}
+
+.card_title {
+  margin: 0 0 10px;
+  font-size: 1.12rem;
+}
+
+.card_info {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  column-gap: 12px;
+  row-gap: 6px;
+}
+
+/* ------ FINAL FIXES ---------*/
+
+.title {
+  text-align: center;
+  margin: 0 0 24px;
+  letter-spacing: 0.2px;
+}
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+}
+.search-bar {
+  width: min(720px, 100%);
+}
+
+.card_info,
+.card_info dt,
+.card_info dd {
+  margin: 0;
+}
+
+.card_info {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  column-gap: 12px;
+  row-gap: 6px;
+  align-items: start;
+}
+.card_title {
+  margin: 0 0 10px;
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+.card_info-title {
+  color: #9ca3af;
+  text-align: left;
+}
+.card_info-description {
+  color: #e5e7eb;
 }
