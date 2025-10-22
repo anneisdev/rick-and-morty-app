@@ -15,7 +15,6 @@ let maxPage = 42;
 let page = 1;
 let searchQuery = "";
 
-
 // Load Character cards
 export async function fetchCharacters() {
   const apiUrl = await fetch(
@@ -35,7 +34,6 @@ export async function fetchCharacters() {
 }
 
 fetchCharacters();
-
 
 // Pagination begins here
 function setPaginationText() {
@@ -66,7 +64,6 @@ nextButton.addEventListener("click", async () => {
   setPaginationText();
 });
 
-
 // Search Logic
 function Search() {
   searchBar.addEventListener("submit", (event) => {
@@ -84,9 +81,8 @@ function Search() {
     if (page !== 1) {
       page = 1;
       setPaginationText();
-    } else {
-      return;
     }
+    
     fetchCharacters();
   });
 }
