@@ -122,11 +122,9 @@ main {
   font-size: 1.12rem;
 }
 
-.card_info {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  column-gap: 12px;
-  row-gap: 6px;
+.card__info {
+  display: flex;
+  flex-direction: column;
 }
 
 /* ------ FINAL FIXES ---------*/
@@ -168,4 +166,11 @@ main {
 }
 .card_info-description {
   color: #e5e7eb;
+}
+
+.card__seperators {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
