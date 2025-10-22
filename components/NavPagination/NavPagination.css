@@ -1,4 +1,4 @@
-.navigation {
+/* .navigation {
   height: 30px;
   display: grid;
   grid-template-columns: 100px 100px 100px;
@@ -7,4 +7,20 @@
 .navigation__pagination {
   display: grid;
   place-items: center;
+}
+ */
+
+
+
+
+/* NavPagination */
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 0;
+}
+.navigation__pagination {
+  color: #94a3b8;
 }
