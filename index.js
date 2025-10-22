@@ -32,8 +32,6 @@ export async function fetchCharacters() {
     const card = createCharacterCard(character);
     cardContainer.append(card);
   });
-
-  console.log(characters);
 }
 
 fetchCharacters();
@@ -89,8 +87,6 @@ function Search() {
     } else {
       return;
     }
-
-    console.log(page);
     fetchCharacters();
   });
 }
