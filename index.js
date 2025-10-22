@@ -39,28 +39,6 @@ export async function fetchCharacters() {
 fetchCharacters();
 
 
-// Search Logic
-function Search() {
-  searchBar.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-
-    if (data.query) {
-      searchQuery = data.query;
-    } else {
-      searchQuery = "";
-    }
-
-    page = 1;
-    console.log(data);
-    fetchCharacters();
-  });
-}
-Search();
-
-
 // Pagination begins here
 function setPaginationText() {
   pagination.textContent = `Page ${page} / ${maxPage}`;
@@ -89,3 +67,31 @@ nextButton.addEventListener("click", async () => {
   await fetchCharacters();
   setPaginationText();
 });
+
+
+// Search Logic
+function Search() {
+  searchBar.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+
+    if (data.query) {
+      searchQuery = data.query;
+    } else {
+      searchQuery = "";
+    }
+
+    if (page !== 1) {
+      page = 1;
+      setPaginationText();
+    } else {
+      return;
+    }
+
+    console.log(page);
+    fetchCharacters();
+  });
+}
+Search();
